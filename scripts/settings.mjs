@@ -13,8 +13,6 @@ import { PriceHelperApp } from "./apps/converter-app.mjs";
 
 export function registerSettings() {
   game.settings.register(MODULE_ID, CURRENCIES, {
-    name: "GPH.Settings.Currencies.Name",
-    hint: "GPH.Settings.Currencies.Hint",
     scope: "world",
     config: false,
     type: Object,
@@ -22,8 +20,6 @@ export function registerSettings() {
   });
 
   game.settings.register(MODULE_ID, CATEGORIES, {
-    name: "GPH.Settings.Categories.Name",
-    hint: "GPH.Settings.Categories.Hint",
     scope: "world",
     config: false,
     type: Object,
@@ -31,8 +27,6 @@ export function registerSettings() {
   });
 
   game.settings.register(MODULE_ID, STATUSES, {
-    name: "GPH.Settings.Statuses.Name",
-    hint: "GPH.Settings.Statuses.Hint",
     scope: "world",
     config: false,
     type: Object,
@@ -40,8 +34,6 @@ export function registerSettings() {
   });
 
   game.settings.register(MODULE_ID, REACTION, {
-    name: "GPH.Settings.Reaction.Name",
-    hint: "GPH.Settings.Reaction.Hint",
     scope: "world",
     config: false,
     type: Object,

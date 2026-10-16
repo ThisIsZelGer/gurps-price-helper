@@ -50,7 +50,8 @@ export class PriceHelperApp extends HandlebarsApplicationMixin(ApplicationV2) {
       coins: {},
       roll: 10,
       modifier: 0,
-      statusId: null
+      statusId: null,
+      matrixOpen: false
     };
   }
 
@@ -70,6 +71,7 @@ export class PriceHelperApp extends HandlebarsApplicationMixin(ApplicationV2) {
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     context.isGM = game.user.isGM;
+    context.matrixOpen = this.gphState.matrixOpen;
     const currencies = sortCurrencies(getTable(CURRENCIES));
     const categories = getTable(CATEGORIES);
     const statuses = getTable(STATUSES);
@@ -83,8 +85,8 @@ export class PriceHelperApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const tier = findReactionTier(total, reactionTable);
     const buyMult = reactionMultiplier(tier, "buy");
     const sellMult = reactionMultiplier(tier, "sell");
-    const buyInfo = formatMultiplier(buyMult);
-    const sellInfo = formatMultiplier(sellMult);
+    const buyText = formatMultiplier(buyMult);
+    const sellText = formatMultiplier(sellMult);
 
     context.currencies = currencies.map((c) => ({
       id: c.id,
@@ -118,14 +120,11 @@ export class PriceHelperApp extends HandlebarsApplicationMixin(ApplicationV2) {
     context.reactionTotal = total;
     context.tierLabel = tier ? localizeName(tier.name) : game.i18n.localize("GPH.Reaction.NoMatch");
     context.tierColor = reactionTierColor(tier, reactionTable);
-    context.buyText = buyInfo.text;
-    context.sellText = sellInfo.text;
-    context.buyDelta = buyInfo.delta;
-    context.sellDelta = sellInfo.delta;
+    context.buyText = buyText;
+    context.sellText = sellText;
 
-    context.selectedStatusId = status?.id ?? null;
-    const statusesSel = [...statuses].sort((a, b) => Number(a.status) - Number(b.status));
-    context.statusOptions = statusesSel.map((s) => ({
+    const statusesSorted = [...statuses].sort((a, b) => Number(a.status) - Number(b.status));
+    context.statusOptions = statusesSorted.map((s) => ({
       id: s.id,
       label: `${s.status >= 0 ? "+" : ""}${s.status} — ${localizeName(s.name)}`,
       selected: s.id === status?.id
@@ -147,9 +146,8 @@ export class PriceHelperApp extends HandlebarsApplicationMixin(ApplicationV2) {
       };
     });
 
-    const statusesRev = [...statuses].sort((a, b) => Number(a.status) - Number(b.status));
     context.matrix = {
-      statuses: statusesRev.map((s) => ({
+      statuses: statusesSorted.map((s) => ({
         id: s.id,
         label: `${s.status >= 0 ? "+" : ""}${s.status}`,
         name: localizeName(s.name),
@@ -157,7 +155,7 @@ export class PriceHelperApp extends HandlebarsApplicationMixin(ApplicationV2) {
       })),
       rows: categories.map((category) => ({
         label: localizeName(category.name),
-        cells: statusesRev.map((s) => {
+        cells: statusesSorted.map((s) => {
           const base = priceFor(s.monthly, category);
           const final = buyMult !== null && buyMult !== 1 ? applyMultiplier(base, buyMult) : null;
           return {
@@ -201,6 +199,11 @@ export class PriceHelperApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
     const status = this.element.querySelector('select[name="statusId"]');
     status?.addEventListener("change", (event) => this.#onStatusChange(event), { signal });
+
+    const matrix = this.element.querySelector(".gph-matrix-details");
+    matrix?.addEventListener("toggle", (event) => {
+      this.gphState.matrixOpen = event.target.open;
+    }, { signal });
   }
 
   #onConverterInput(event) {
@@ -264,8 +267,8 @@ export class PriceHelperApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const total = this.gphState.roll + this.gphState.modifier;
     const reactionTable = getTable(REACTION);
     const tier = findReactionTier(total, reactionTable);
-    const buy = formatMultiplier(reactionMultiplier(tier, "buy"));
-    const sell = formatMultiplier(reactionMultiplier(tier, "sell"));
+    const buyText = formatMultiplier(reactionMultiplier(tier, "buy"));
+    const sellText = formatMultiplier(reactionMultiplier(tier, "sell"));
 
     const totalOut = this.element.querySelector('[data-gph="reactionTotal"]');
     if (totalOut) totalOut.textContent = total;
@@ -275,9 +278,9 @@ export class PriceHelperApp extends HandlebarsApplicationMixin(ApplicationV2) {
       labelOut.style.color = reactionTierColor(tier, reactionTable);
     }
     const buyOut = this.element.querySelector('[data-gph="reactionBuy"]');
-    if (buyOut) buyOut.textContent = buy.text;
+    if (buyOut) buyOut.textContent = buyText;
     const sellOut = this.element.querySelector('[data-gph="reactionSell"]');
-    if (sellOut) sellOut.textContent = sell.text;
+    if (sellOut) sellOut.textContent = sellText;
 
     this.#renderConverterOutputs();
     this.render({ parts: ["prices"] });

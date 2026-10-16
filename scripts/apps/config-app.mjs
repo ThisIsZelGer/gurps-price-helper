@@ -185,14 +185,13 @@ export class ConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
     if (event.clientY > rect.top + rect.height / 2) insertIndex = targetIndex + 1;
     const { arrayKey, index } = this.gphDrag;
     const list = this.gphDraft[arrayKey];
-    if (!Array.isArray(list)) { this.gphDrag = null; this.#clearDragClasses(); return; }
-    if (index < insertIndex) insertIndex -= 1;
-    if (index === insertIndex || insertIndex < 0 || insertIndex > list.length) { this.gphDrag = null; this.#clearDragClasses(); if (index !== insertIndex) { /* maybe force render no, but same */ } }
-    if (index === insertIndex) { this.gphDrag = null; this.#clearDragClasses(); return; }
-    const [moved] = list.splice(index, 1);
-    list.splice(insertIndex, 0, moved);
     this.gphDrag = null;
     this.#clearDragClasses();
+    if (!Array.isArray(list) || insertIndex < 0 || insertIndex > list.length) return;
+    if (index < insertIndex) insertIndex -= 1;
+    if (index === insertIndex) return;
+    const [moved] = list.splice(index, 1);
+    list.splice(insertIndex, 0, moved);
     this.render({ parts: ["body"] });
   }
 

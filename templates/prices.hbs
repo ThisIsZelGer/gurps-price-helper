@@ -13,8 +13,7 @@
       <tr>
         <th>{{localize "GPH.Prices.Category"}}</th>
         <th>{{localize "GPH.Prices.Percent"}}</th>
-        <th>{{localize "GPH.Prices.Base"}}</th>
-        <th>{{localize "GPH.Prices.Coins"}}</th>
+        <th class="gph-base-cell">{{localize "GPH.Prices.BaseCost"}}</th>
         <th class="gph-buy-cell">{{localize "GPH.Reaction.Buy"}}</th>
         <th class="gph-sell-cell">{{localize "GPH.Reaction.Sell"}}</th>
       </tr>
@@ -24,8 +23,7 @@
         <tr>
           <td>{{this.label}}</td>
           <td>{{this.percent}}%</td>
-          <td>{{this.base}}</td>
-          <td class="gph-coins-cell">{{{this.baseCoins}}}</td>
+          <td class="gph-base-cell">{{this.base}}<br><small>{{{this.baseCoins}}}</small></td>
           <td class="gph-buy-cell">{{this.buy}}<br><small>{{{this.buyCoins}}}</small></td>
           <td class="gph-sell-cell">{{this.sell}}<br><small>{{{this.sellCoins}}}</small></td>
         </tr>
@@ -33,27 +31,29 @@
     </tbody>
   </table>
 
-  <h3>{{localize "GPH.Prices.Matrix"}}</h3>
-  <div class="gph-matrix-wrap">
-    <table class="gph-table gph-matrix">
-      <thead>
-        <tr>
-          <th>{{localize "GPH.Prices.Category"}}</th>
-          {{#each matrix.statuses}}
-            <th title="{{this.name}}" {{#if this.color}}style="color: {{this.color}}"{{/if}}>{{this.label}}</th>
-          {{/each}}
-        </tr>
-      </thead>
-      <tbody>
-        {{#each matrix.rows}}
+  <details class="gph-matrix-details" {{#if matrixOpen}}open{{/if}}>
+    <summary>{{localize "GPH.Prices.Matrix"}}</summary>
+    <div class="gph-matrix-wrap">
+      <table class="gph-table gph-matrix">
+        <thead>
           <tr>
-            <td>{{this.label}}</td>
-            {{#each this.cells}}
-              <td>{{this.base}}{{#if this.final}}<br><small class="gph-final">{{this.final}}</small>{{/if}}</td>
+            <th>{{localize "GPH.Prices.Category"}}</th>
+            {{#each matrix.statuses}}
+              <th title="{{this.name}}" {{#if this.color}}style="color: {{this.color}}"{{/if}}>{{this.label}}</th>
             {{/each}}
           </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          {{#each matrix.rows}}
+            <tr>
+              <td>{{this.label}}</td>
+              {{#each this.cells}}
+                <td>{{this.base}}{{#if this.final}}<br><small class="gph-final">{{this.final}}</small>{{/if}}</td>
+              {{/each}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </details>
 </section>

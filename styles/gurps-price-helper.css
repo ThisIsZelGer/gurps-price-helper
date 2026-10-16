@@ -43,21 +43,23 @@
   opacity: 1;
 }
 
-.gurps-price-helper h3 {
+.gurps-price-helper .gph-matrix-details > summary {
+  cursor: pointer;
   margin: 0.75rem 0 0.35rem;
   font-size: 0.95rem;
+  font-weight: bold;
 }
 
 .gurps-price-helper .gph-converter-grid {
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 7rem 1fr;
   gap: 1rem;
   align-items: start;
 }
 
 .gurps-price-helper .gph-coins {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
@@ -80,7 +82,8 @@
 }
 
 .gurps-price-helper .gph-coin input {
-  min-width: 4.5rem;
+  width: 4.5rem;
+  min-width: 0;
 }
 
 .gurps-price-helper .gph-outputs {
@@ -184,11 +187,7 @@
   text-align: left;
 }
 
-.gurps-price-helper .gph-coins-cell {
-  font-size: 0.8rem;
-  white-space: nowrap;
-}
-
+.gurps-price-helper .gph-base-cell,
 .gurps-price-helper .gph-buy-cell,
 .gurps-price-helper .gph-sell-cell {
   font-weight: bold;
@@ -230,13 +229,6 @@
 
 .gurps-price-helper .gph-add {
   margin-top: 0.35rem;
-}
-
-.gurps-price-helper .gph-config-footer {
-  position: sticky;
-  bottom: 0;
-  padding: 0.5rem 0;
-  background: var(--color-bg, rgba(0, 0, 0, 0.03));
 }
 
 

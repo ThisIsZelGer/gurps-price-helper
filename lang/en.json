@@ -64,8 +64,7 @@
       "Status": "Status",
       "Category": "Category",
       "Percent": "%",
-      "Base": "Base ($)",
-      "Coins": "In coins",
+      "BaseCost": "Base cost",
       "Matrix": "All statuses (base / with buy reaction)"
     },
     "Currency": {
@@ -97,22 +96,6 @@
       "Rations": "Travel rations (per week)"
     },
     "Settings": {
-      "Currencies": {
-        "Name": "Currencies",
-        "Hint": "Currencies and their value in $ (edit via the settings menu)."
-      },
-      "Categories": {
-        "Name": "Price categories",
-        "Hint": "Price categories and their share of the monthly living cost (edit via the settings menu)."
-      },
-      "Statuses": {
-        "Name": "Statuses",
-        "Hint": "Statuses and their monthly living cost (edit via the settings menu)."
-      },
-      "Reaction": {
-        "Name": "Reaction table",
-        "Hint": "Reaction roll ranges and their price multipliers (edit via the settings menu)."
-      },
       "AllowPlayers": {
         "Name": "Allow players",
         "Hint": "Let non-GM users open the price helper."

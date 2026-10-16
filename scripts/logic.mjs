@@ -61,6 +61,7 @@ export function resolveCurrencyColor(currency) {
 
 export function formatCoins(parts, currencies, { emptyText = "0" } = {}) {
   const byId = new Map((currencies ?? []).map((c) => [c.id, c]));
+  const numberFormat = new Intl.NumberFormat(game.i18n.lang, { maximumFractionDigits: 0 });
   const chunks = [];
   for (const part of parts ?? []) {
     const value = Number(part.count);
@@ -68,9 +69,10 @@ export function formatCoins(parts, currencies, { emptyText = "0" } = {}) {
     const currency = byId.get(part.id) ?? part.currency;
     const abbr = escapeHtml(currency ? localizeName(currency.abbr) : part.id);
     const color = resolveCurrencyColor(currency);
+    const count = numberFormat.format(value);
     chunks.push(color
-      ? `${value}<span class="gph-cur" style="color:${color}">${abbr}</span>`
-      : `${value}${abbr}`);
+      ? `${count}<span style="color:${color}">${abbr}</span>`
+      : `${count}${abbr}`);
   }
   return chunks.length ? chunks.join(" ") : escapeHtml(emptyText);
 }
@@ -105,13 +107,11 @@ export function applyMultiplier(base, multiplier) {
 
 export function formatMultiplier(multiplier) {
   if (multiplier === null || multiplier === undefined) {
-    return { text: game.i18n.localize("GPH.Reaction.NoDeal"), delta: null };
+    return game.i18n.localize("GPH.Reaction.NoDeal");
   }
   const percent = round(multiplier * 100, 2);
   const number = new Intl.NumberFormat(game.i18n.lang, { maximumFractionDigits: 2 }).format(percent);
-  const sign = percent > 100 ? "+" : percent < 100 ? "−" : "";
-  const delta = percent === 100 ? null : round(percent - 100, 2);
-  return { text: `${number}%`, delta, percent, sign };
+  return `${number}%`;
 }
 
 export function formatDollars(amount) {

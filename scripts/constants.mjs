@@ -6,13 +6,13 @@ export const STATUSES = "statuses";
 export const REACTION = "reaction";
 export const ALLOW_PLAYERS = "allowPlayers";
 
-export const DEFAULT_CURRENCIES = [
+const DEFAULT_CURRENCIES = [
   { id: "gold", name: "GPH.Currency.Gold", abbr: "GPH.Currency.GoldAbbr", value: 80, color: "#d4af37" },
   { id: "silver", name: "GPH.Currency.Silver", abbr: "GPH.Currency.SilverAbbr", value: 4, color: "#c0c0c0" },
   { id: "copper", name: "GPH.Currency.Copper", abbr: "GPH.Currency.CopperAbbr", value: 1, color: "#b87333" }
 ];
 
-export const DEFAULT_CATEGORIES = [
+const DEFAULT_CATEGORIES = [
   { id: "lodging", name: "GPH.Category.Lodging", percent: 20 },
   { id: "breakfast", name: "GPH.Category.Breakfast", percent: 1 },
   { id: "dinner", name: "GPH.Category.Dinner", percent: 2 },
@@ -20,7 +20,7 @@ export const DEFAULT_CATEGORIES = [
   { id: "rations", name: "GPH.Category.Rations", percent: 5 }
 ];
 
-export const DEFAULT_STATUSES = [
+const DEFAULT_STATUSES = [
   { id: "s8", status: 8, name: "GPH.Status.s8", monthly: 600000000 },
   { id: "s7", status: 7, name: "GPH.Status.s7", monthly: 60000000 },
   { id: "s6", status: 6, name: "GPH.Status.s6", monthly: 6000000 },
@@ -34,7 +34,7 @@ export const DEFAULT_STATUSES = [
   { id: "sm2", status: -2, name: "GPH.Status.sm2", monthly: 100 }
 ];
 
-export const DEFAULT_REACTION = [
+const DEFAULT_REACTION = [
   { id: "disastrous", min: -999, max: 0, name: "GPH.Reaction.Disastrous", buy: null, sell: null },
   { id: "verybad", min: 1, max: 3, name: "GPH.Reaction.VeryBad", buy: 300, sell: 33.33 },
   { id: "bad", min: 4, max: 6, name: "GPH.Reaction.Bad", buy: 200, sell: 50 },
