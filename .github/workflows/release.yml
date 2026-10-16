@@ -50,10 +50,22 @@ jobs:
             lang \
             -x "*.DS_Store"
 
+      - name: Extract release notes from CHANGELOG
+        run: |
+          awk -v ver="${{ steps.version.outputs.version }}" '
+            BEGIN { found=0 }
+            $0 ~ "^## \\[" ver "\\]" { found=1; next }
+            found && $0 ~ "^## \\[" { found=0 }
+            found { print }
+          ' CHANGELOG.md > release_notes.md
+          if [ ! -s release_notes.md ]; then
+            echo "See [CHANGELOG.md](CHANGELOG.md) for details." > release_notes.md
+          fi
+
       - name: Create release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create "${{ steps.version.outputs.tag }}" module.json module.zip \
             --title "Release ${{ steps.version.outputs.version }}" \
-            --generate-notes
+            --notes-file release_notes.md

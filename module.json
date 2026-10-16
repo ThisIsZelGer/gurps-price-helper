@@ -2,7 +2,7 @@
   "id": "gurps-price-helper",
   "title": "GURPS Price Helper",
   "description": "Converts GURPS dollars to and from game currencies (gold/silver/copper), and shows a price list for lodging, food and drink by Status, adjusted by the GURPS reaction roll table.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "compatibility": {
     "minimum": "14",
     "verified": "14.369"

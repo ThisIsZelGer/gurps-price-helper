@@ -3,6 +3,12 @@
 Формат основан на [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/),
 версии следуют [Semantic Versioning](https://semver.org/lang/ru/).
 
+## [1.1.1] - 2026-10-16
+
+### Fixed
+
+- Заметки к релизу теперь формируются из этого CHANGELOG, а не генерируются автоматически.
+
 ## [1.1.0] - 2026-10-16
 
 ### Added
