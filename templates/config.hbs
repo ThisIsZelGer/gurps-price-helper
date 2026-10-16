@@ -1,0 +1,131 @@
+<div class="gph-config-form">
+  <div class="gph-config-scroll">
+    <section class="gph-section">
+      <div class="gph-section-head">
+        <h2>{{localize "GPH.Section.Currencies"}}</h2>
+        <button type="button" class="gph-icon" data-action="reset" data-array="currencies" title="{{localize "GPH.Config.Reset"}}"><i class="fa-solid fa-rotate-left"></i> {{localize "GPH.Config.Reset"}}</button>
+      </div>
+      <table class="gph-table">
+        <thead>
+          <tr>
+            <th class="gph-drag"></th>
+            <th>{{localize "GPH.Config.Name"}}</th>
+            <th>{{localize "GPH.Config.Abbr"}}</th>
+            <th>{{localize "GPH.Config.Color"}}</th>
+            <th>{{localize "GPH.Config.Value"}}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each currencies}}
+            <tr data-array="currencies" data-index="{{this.index}}">
+              <td class="gph-drag-cell"><i class="fa-solid fa-grip-vertical gph-drag-handle" draggable="true"></i></td>
+              <td><input type="text" data-array="currencies" data-index="{{this.index}}" data-field="name" value="{{this.nameDisplay}}"></td>
+              <td><input type="text" data-array="currencies" data-index="{{this.index}}" data-field="abbr" value="{{this.abbrDisplay}}"></td>
+              <td><input type="color" data-array="currencies" data-index="{{this.index}}" data-field="color" value="{{this.colorDisplay}}"></td>
+              <td><input type="number" step="0.01" data-array="currencies" data-index="{{this.index}}" data-field="value" data-type="number" value="{{this.value}}"></td>
+              <td class="gph-action-cell"><button type="button" class="gph-icon" data-action="removeRow" data-array="currencies" data-index="{{this.index}}"><i class="fa-solid fa-trash"></i></button></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <button type="button" class="gph-add" data-action="addRow" data-array="currencies"><i class="fa-solid fa-plus"></i> {{localize "GPH.Config.Add"}}</button>
+    </section>
+
+    <section class="gph-section">
+      <div class="gph-section-head">
+        <h2>{{localize "GPH.Section.Categories"}}</h2>
+        <button type="button" class="gph-icon" data-action="reset" data-array="categories" title="{{localize "GPH.Config.Reset"}}"><i class="fa-solid fa-rotate-left"></i> {{localize "GPH.Config.Reset"}}</button>
+      </div>
+      <table class="gph-table">
+        <thead>
+          <tr>
+            <th class="gph-drag"></th>
+            <th>{{localize "GPH.Config.Name"}}</th>
+            <th>{{localize "GPH.Config.Percent"}}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each categories}}
+            <tr data-array="categories" data-index="{{this.index}}">
+              <td class="gph-drag-cell"><i class="fa-solid fa-grip-vertical gph-drag-handle" draggable="true"></i></td>
+              <td><input type="text" data-array="categories" data-index="{{this.index}}" data-field="name" value="{{this.nameDisplay}}"></td>
+              <td><input type="number" step="0.01" data-array="categories" data-index="{{this.index}}" data-field="percent" data-type="number" value="{{this.percent}}"></td>
+              <td class="gph-action-cell"><button type="button" class="gph-icon" data-action="removeRow" data-array="categories" data-index="{{this.index}}"><i class="fa-solid fa-trash"></i></button></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <button type="button" class="gph-add" data-action="addRow" data-array="categories"><i class="fa-solid fa-plus"></i> {{localize "GPH.Config.Add"}}</button>
+    </section>
+
+    <section class="gph-section">
+      <div class="gph-section-head">
+        <h2>{{localize "GPH.Section.Statuses"}}</h2>
+        <button type="button" class="gph-icon" data-action="reset" data-array="statuses" title="{{localize "GPH.Config.Reset"}}"><i class="fa-solid fa-rotate-left"></i> {{localize "GPH.Config.Reset"}}</button>
+      </div>
+      <table class="gph-table">
+        <thead>
+          <tr>
+            <th class="gph-drag"></th>
+            <th>{{localize "GPH.Config.Status"}}</th>
+            <th>{{localize "GPH.Config.Name"}}</th>
+            <th>{{localize "GPH.Config.Monthly"}}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each statuses}}
+            <tr data-array="statuses" data-index="{{this.index}}">
+              <td class="gph-drag-cell"><i class="fa-solid fa-grip-vertical gph-drag-handle" draggable="true"></i></td>
+              <td><input type="number" step="1" data-array="statuses" data-index="{{this.index}}" data-field="status" data-type="number" value="{{this.status}}"></td>
+              <td><input type="text" data-array="statuses" data-index="{{this.index}}" data-field="name" value="{{this.nameDisplay}}"></td>
+              <td><input type="number" step="1" data-array="statuses" data-index="{{this.index}}" data-field="monthly" data-type="number" value="{{this.monthly}}"></td>
+              <td class="gph-action-cell"><button type="button" class="gph-icon" data-action="removeRow" data-array="statuses" data-index="{{this.index}}"><i class="fa-solid fa-trash"></i></button></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <button type="button" class="gph-add" data-action="addRow" data-array="statuses"><i class="fa-solid fa-plus"></i> {{localize "GPH.Config.Add"}}</button>
+    </section>
+
+    <section class="gph-section">
+      <div class="gph-section-head">
+        <h2>{{localize "GPH.Section.ReactionTable"}}</h2>
+        <button type="button" class="gph-icon" data-action="reset" data-array="reaction" title="{{localize "GPH.Config.Reset"}}"><i class="fa-solid fa-rotate-left"></i> {{localize "GPH.Config.Reset"}}</button>
+      </div>
+      <table class="gph-table">
+        <thead>
+          <tr>
+            <th class="gph-drag"></th>
+            <th>{{localize "GPH.Config.Min"}}</th>
+            <th>{{localize "GPH.Config.Max"}}</th>
+            <th>{{localize "GPH.Config.Name"}}</th>
+            <th>{{localize "GPH.Config.Buy"}} (%)</th>
+            <th>{{localize "GPH.Config.Sell"}} (%)</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each reactions}}
+            <tr data-array="reaction" data-index="{{this.index}}">
+              <td class="gph-drag-cell"><i class="fa-solid fa-grip-vertical gph-drag-handle" draggable="true"></i></td>
+              <td><input type="number" step="1" data-array="reaction" data-index="{{this.index}}" data-field="min" data-type="number" value="{{this.min}}"></td>
+              <td><input type="number" step="1" data-array="reaction" data-index="{{this.index}}" data-field="max" data-type="number" value="{{this.max}}"></td>
+              <td><input type="text" data-array="reaction" data-index="{{this.index}}" data-field="name" value="{{this.nameDisplay}}"></td>
+              <td><input type="number" step="0.01" data-array="reaction" data-index="{{this.index}}" data-field="buy" data-type="number" value="{{this.buyDisplay}}"></td>
+              <td><input type="number" step="0.01" data-array="reaction" data-index="{{this.index}}" data-field="sell" data-type="number" value="{{this.sellDisplay}}"></td>
+              <td class="gph-action-cell"><button type="button" class="gph-icon" data-action="removeRow" data-array="reaction" data-index="{{this.index}}"><i class="fa-solid fa-trash"></i></button></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <button type="button" class="gph-add" data-action="addRow" data-array="reaction"><i class="fa-solid fa-plus"></i> {{localize "GPH.Config.Add"}}</button>
+    </section>
+  </div>
+
+  <footer class="gph-config-footer">
+    <button type="button" class="gph-save" data-action="save"><i class="fa-solid fa-floppy-disk"></i> {{localize "GPH.Config.Save"}}</button>
+  </footer>
+</div>

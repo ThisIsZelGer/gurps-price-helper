@@ -1,0 +1,41 @@
+<section class="gph-section gph-converter">
+  <div class="gph-section-head">
+    <h2>{{localize "GPH.Section.Converter"}}</h2>
+    {{#if isGM}}
+      <button type="button" class="gph-icon" data-action="openConfig" title="{{localize "GPH.Converter.Settings"}}"><i class="fa-solid fa-sliders"></i> {{localize "GPH.Converter.Settings"}}</button>
+    {{/if}}
+  </div>
+  <div class="gph-converter-grid">
+    <div class="gph-field">
+      <label for="gph-dollars">{{localize "GPH.Converter.Dollars"}}</label>
+      <input id="gph-dollars" type="number" step="0.01" name="dollars" data-gph="dollars" value="{{dollars}}">
+    </div>
+    <div class="gph-coins">
+      {{#each currencies}}
+        <div class="gph-field gph-coin">
+          <label title="{{this.name}}"{{#if this.color}} style="color:{{this.color}}"{{/if}}>{{this.abbr}}</label>
+          <input type="number" step="1" name="coin.{{this.id}}" data-gph-coin="{{this.id}}" value="{{this.count}}">
+        </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class="gph-outputs">
+    <div class="gph-output">
+      <div class="gph-output-main">
+        <span class="gph-output-label">{{localize "GPH.Converter.AsCoins"}}</span>
+        <span class="gph-output-value" data-gph="coinsResult">{{{coinsResult}}}</span>
+      </div>
+      <small class="gph-output-adj" data-gph="coinsAdjusted">{{{coinsAdjusted}}}</small>
+    </div>
+    <div class="gph-output">
+      <div class="gph-output-main">
+        <span class="gph-output-label">{{localize "GPH.Converter.AsDollars"}}</span>
+        <span class="gph-output-value" data-gph="dollarsResult">{{dollarsResult}}</span>
+      </div>
+      <small class="gph-output-adj" data-gph="dollarsAdjusted">{{{dollarsAdjusted}}}</small>
+    </div>
+  </div>
+  <div class="gph-buttons">
+    <button type="button" data-action="resetConverter"><i class="fa-solid fa-rotate-left"></i> {{localize "GPH.Converter.Reset"}}</button>
+  </div>
+</section>

@@ -1,0 +1,255 @@
+.gurps-price-helper .window-content {
+  overflow-y: auto;
+}
+
+.gurps-price-helper .gph-section {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border-light-primary, #b5b3a4);
+}
+
+.gurps-price-helper .gph-section:last-child {
+  border-bottom: none;
+}
+
+.gurps-price-helper h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--color-border-dark, #7a7971);
+}
+
+.gurps-price-helper .gph-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem;
+  border-bottom: 1px solid var(--color-border-dark, #7a7971);
+}
+
+.gurps-price-helper .gph-section-head h2 {
+  margin: 0;
+  border-bottom: none;
+}
+
+.gurps-price-helper .gph-section-head button {
+  flex: 0 0 auto;
+  width: auto;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.gurps-price-helper .gph-section-head button:hover {
+  opacity: 1;
+}
+
+.gurps-price-helper h3 {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.95rem;
+}
+
+.gurps-price-helper .gph-converter-grid {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.gurps-price-helper .gph-coins {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.gurps-price-helper .gph-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.gurps-price-helper .gph-field label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  opacity: 0.85;
+}
+
+.gurps-price-helper .gph-field input,
+.gurps-price-helper .gph-field select {
+  width: 100%;
+  text-align: center;
+}
+
+.gurps-price-helper .gph-coin input {
+  min-width: 4.5rem;
+}
+
+.gurps-price-helper .gph-outputs {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.gurps-price-helper .gph-output {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  align-items: flex-start;
+}
+
+.gurps-price-helper .gph-output-main {
+  display: flex;
+  gap: 0.4rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.gurps-price-helper .gph-output-adj {
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+
+.gurps-price-helper .gph-output-label {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.gurps-price-helper .gph-output-value {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.gurps-price-helper .gph-buttons,
+.gurps-price-helper .gph-config-footer {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.gurps-price-helper .gph-reaction-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.gurps-price-helper .gph-reaction-grid .gph-field {
+  width: 130px;
+}
+
+.gurps-price-helper .gph-total-value {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.gurps-price-helper .gph-reaction-result {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.gurps-price-helper .gph-tier {
+  font-size: 1.1rem;
+  color: var(--color-text-hyperlink, #782e22);
+}
+
+.gurps-price-helper .gph-reaction-mults {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.gurps-price-helper table.gph-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.gurps-price-helper table.gph-table th,
+.gurps-price-helper table.gph-table td {
+  border: 1px solid var(--color-border-light-primary, #b5b3a4);
+  padding: 0.25rem 0.35rem;
+  text-align: center;
+}
+
+.gurps-price-helper table.gph-table th {
+  background: var(--color-bg-option, rgba(0, 0, 0, 0.06));
+}
+
+.gurps-price-helper table.gph-table td:first-child,
+.gurps-price-helper table.gph-table th:first-child {
+  text-align: left;
+}
+
+.gurps-price-helper .gph-coins-cell {
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.gurps-price-helper .gph-buy-cell,
+.gurps-price-helper .gph-sell-cell {
+  font-weight: bold;
+}
+
+.gurps-price-helper .gph-final {
+  color: var(--color-text-hyperlink, #782e22);
+}
+
+.gurps-price-helper .gph-status-select {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.gurps-price-helper .gph-status-select select {
+  flex: 1;
+}
+
+.gurps-price-helper .gph-matrix-wrap {
+  overflow-x: auto;
+}
+
+.gurps-price-helper table.gph-matrix {
+  font-size: 0.78rem;
+}
+
+.gurps-price-helper table.gph-matrix td {
+  white-space: nowrap;
+}
+
+.gurps-price-helper .gph-icon,
+.gurps-price-helper .gph-add {
+  width: auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+.gurps-price-helper .gph-add {
+  margin-top: 0.35rem;
+}
+
+.gurps-price-helper .gph-config-footer {
+  position: sticky;
+  bottom: 0;
+  padding: 0.5rem 0;
+  background: var(--color-bg, rgba(0, 0, 0, 0.03));
+}
+
+
+.gurps-price-helper .gph-drag-cell{width:1.5rem;padding:0 .2rem;}
+.gurps-price-helper .gph-action-cell{width:2.5rem;}
+.gurps-price-helper .gph-drag-handle{cursor:grab;opacity:.5;}
+.gurps-price-helper .gph-drag-handle:active{cursor:grabbing;}
+.gurps-price-helper tr.gph-dragging{opacity:.4;}
+.gurps-price-helper tr.gph-drop-before td{border-top:2px solid var(--color-highlight,#ff6400);}
+.gurps-price-helper tr.gph-drop-after td{border-bottom:2px solid var(--color-highlight,#ff6400);}
+
+.gurps-price-helper.gph-config .gph-config-form{display:flex;flex-direction:column;max-height:100%;}
+.gurps-price-helper.gph-config .gph-config-scroll{flex:1 1 auto;overflow-y:auto;min-height:0;padding-right:.25rem;}
+.gurps-price-helper.gph-config .gph-config-footer{flex:0 0 auto;position:sticky;bottom:0;margin-top:.5rem;padding:.5rem;border-top:1px solid var(--color-border-dark,#7a7971);background:var(--color-bg-option,rgba(0,0,0,.06));}
+
+.gurps-price-helper.gph-config table.gph-table tbody tr,.gurps-price-helper.gph-config table.gph-table tbody tr:nth-child(odd),.gurps-price-helper.gph-config table.gph-table tbody tr:nth-child(even){background-color:transparent;}

@@ -1,0 +1,24 @@
+<section class="gph-section gph-reaction">
+  <h2>{{localize "GPH.Section.Reaction"}}</h2>
+  <div class="gph-reaction-grid">
+    <div class="gph-field">
+      <label>{{localize "GPH.Reaction.Roll"}}</label>
+      <input type="number" step="1" min="3" max="18" name="roll" data-gph-reaction="roll" value="{{roll}}">
+    </div>
+    <div class="gph-field">
+      <label>{{localize "GPH.Reaction.Modifier"}}</label>
+      <input type="number" step="1" name="modifier" data-gph-reaction="modifier" value="{{modifier}}">
+    </div>
+    <div class="gph-field gph-total">
+      <label>{{localize "GPH.Reaction.Total"}}</label>
+      <span class="gph-total-value" data-gph="reactionTotal">{{reactionTotal}}</span>
+    </div>
+  </div>
+  <div class="gph-reaction-result">
+    <strong class="gph-tier" data-gph="reactionLabel" style="color: {{tierColor}}">{{tierLabel}}</strong>
+    <div class="gph-reaction-mults">
+      <span class="gph-buy"><i class="fa-solid fa-cart-shopping"></i> {{localize "GPH.Reaction.Buy"}}: <b data-gph="reactionBuy">{{buyText}}</b></span>
+      <span class="gph-sell"><i class="fa-solid fa-hand-holding-dollar"></i> {{localize "GPH.Reaction.Sell"}}: <b data-gph="reactionSell">{{sellText}}</b></span>
+    </div>
+  </div>
+</section>

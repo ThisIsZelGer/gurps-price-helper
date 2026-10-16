@@ -1,0 +1,146 @@
+{
+  "GPH": {
+    "App": {
+      "Title": "GURPS Price Helper"
+    },
+    "Config": {
+      "Title": "GURPS Price Helper — Settings",
+      "Name": "Name",
+      "Abbr": "Symbol",
+      "Color": "Color",
+      "Value": "Value in $",
+      "Percent": "% of living cost",
+      "Status": "Status",
+      "Monthly": "Living cost / month ($)",
+      "Min": "From",
+      "Max": "To",
+      "Buy": "Buy",
+      "Sell": "Sell",
+      "Add": "Add row",
+      "Save": "Save",
+      "Reset": "Reset to defaults",
+      "ResetConfirm": "Reset this table to its default values?",
+      "NewCurrency": "New currency",
+      "NewCategory": "New category",
+      "NewStatus": "New status",
+      "NewReaction": "New reaction"
+    },
+    "Section": {
+      "Converter": "Currency converter",
+      "Reaction": "Reaction roll",
+      "Prices": "Price list",
+      "Currencies": "Currencies",
+      "Categories": "Price categories",
+      "Statuses": "Statuses & cost of living",
+      "ReactionTable": "Reaction table"
+    },
+    "Converter": {
+      "Dollars": "Amount in $",
+      "AsCoins": "In coins",
+      "AsDollars": "In $",
+      "Reset": "Reset",
+      "Settings": "Settings"
+    },
+    "Reaction": {
+      "Roll": "3d6 result",
+      "Modifier": "Personal modifier",
+      "Total": "Total",
+      "Buy": "Buy (you pay)",
+      "Sell": "Sell (you get)",
+      "BuyShort": "Buy",
+      "SellShort": "Sell",
+      "NoDeal": "no deal",
+      "NoMatch": "no result",
+      "Disastrous": "Disastrous",
+      "VeryBad": "Very bad",
+      "Bad": "Bad",
+      "Poor": "Poor",
+      "Neutral": "Neutral",
+      "Good": "Good",
+      "VeryGood": "Very good",
+      "Excellent": "Excellent"
+    },
+    "Prices": {
+      "Status": "Status",
+      "Category": "Category",
+      "Percent": "%",
+      "Base": "Base ($)",
+      "Coins": "In coins",
+      "Matrix": "All statuses (base / with buy reaction)"
+    },
+    "Currency": {
+      "Gold": "Gold",
+      "Silver": "Silver",
+      "Copper": "Copper",
+      "GoldAbbr": "gp",
+      "SilverAbbr": "sp",
+      "CopperAbbr": "cp"
+    },
+    "Status": {
+      "s8": "Emperor",
+      "s7": "King",
+      "s6": "Royal family",
+      "s5": "Great noble",
+      "s4": "Minor noble",
+      "s3": "Landed knight",
+      "s2": "Landless knight",
+      "s1": "Squire, merchant",
+      "s0": "Free man",
+      "sm1": "Serf, poor citizen",
+      "sm2": "Slave, homeless"
+    },
+    "Category": {
+      "Lodging": "Lodging (per night)",
+      "Breakfast": "Breakfast / lunch",
+      "Dinner": "Dinner",
+      "Spirits": "Spirits (per bottle)",
+      "Rations": "Travel rations (per week)"
+    },
+    "Settings": {
+      "Currencies": {
+        "Name": "Currencies",
+        "Hint": "Currencies and their value in $ (edit via the settings menu)."
+      },
+      "Categories": {
+        "Name": "Price categories",
+        "Hint": "Price categories and their share of the monthly living cost (edit via the settings menu)."
+      },
+      "Statuses": {
+        "Name": "Statuses",
+        "Hint": "Statuses and their monthly living cost (edit via the settings menu)."
+      },
+      "Reaction": {
+        "Name": "Reaction table",
+        "Hint": "Reaction roll ranges and their price multipliers (edit via the settings menu)."
+      },
+      "AllowPlayers": {
+        "Name": "Allow players",
+        "Hint": "Let non-GM users open the price helper."
+      }
+    },
+    "Menu": {
+      "Open": {
+        "Name": "Open price helper",
+        "Label": "Open converter",
+        "Hint": "Open the GURPS Price Helper window."
+      },
+      "Config": {
+        "Name": "Price helper tables",
+        "Label": "Configure tables",
+        "Hint": "Edit currencies, price categories, statuses and the reaction table."
+      }
+    },
+    "Control": {
+      "Open": "GURPS Price Helper"
+    },
+    "Keybind": {
+      "Open": "Open GURPS Price Helper",
+      "OpenHint": "Opens the GURPS Price Helper window."
+    },
+    "Notify": {
+      "Saved": "GURPS Price Helper: settings saved.",
+      "Reset": "GURPS Price Helper: table reset to defaults.",
+      "NotAllowed": "You are not allowed to open the price helper."
+    }
+  }
+}
